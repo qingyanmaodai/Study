@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 500px;
+            border: 1px red solid;
+            /* 
+                text-align 文本的水平对齐
+                    可选值：
+                        left 左侧对齐
+                        right 右对齐
+                        center 居中对齐
+                        justify 两侧对齐
+
+             */
+             /* text-align:justify; */
+             font-size: 50px;
+        }
+        span{
+            font-size: 20px;
+            border: 1px blue solid;
+
+        /* 
+            vertical-align 设置元素垂直对齐的方式
+                可选值：
+                    baseline 默认值 基线对齐
+                    top 顶部对齐
+                    bottom 底部对齐
+                    middle 居中对齐
+                    直接设置值也行px
+        */
+            vertical-align: middle;
+        }
+        p{
+            border: 1px red solid;
+            vertical-align: ;
+        }
+        img{
+            /* 取消图片基线对齐 */
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+    <div>今天天气<span>真不错</span>！</div>
+    <div>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid laudantium dolorum praesentium quia aut doloribus at, accusantium in sed alias repudiandae a dolor sequi est veniam perspiciatis placeat, aliquam dolores.
+    </div>
+    <p><img src="../01_introduce/img/01.jpg" alt=""></p>
+</body>
+</html>
