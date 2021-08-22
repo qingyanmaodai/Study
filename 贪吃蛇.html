@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        table{
+            position: absolute;
+        }
+        /* 设置表格大小50px，边框是1，所以设置48px */
+        td{
+            width: 48px;
+            height: 48px;
+        }
+        #map{
+            width: 500px;
+            height: 500px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <!-- 地图为500*500 10*10 表格是用来当刻度的-->
+    <table border="1" cellspacing="0">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <!-- 蛇头 身体包括食物  都是由js动态创建出的div 必须要以div做地图方便后期appendChild -->
+    <div id="map">
+    </div>
+    <h1>Score:0</h1>
+    <button>快</button>
+    <button>中</button>
+    <button>慢</button>
+    <script>
+        // 在刷新页面的时候不仅要产生地图，还要产生两个div，分别对应蛇头以及身体
+        // 由于蛇头 食物以及多个身体 都是动态创建的div
+        // 封装一个方法用于创建div元素 参数扩展函数功能
+        var map=document.getElementById("map")
+        function createDiv(color){
+            // 创建一个div节点
+            var div=document.createElement("div");
+            div.style.width="50px";
+            div.style.height="50px";
+            div.style.position="absolute";// 为了改变位置，并且不让其独立成行
+            // 位置由于是随机数
+            // Math.random()产生一个0-1的随机数 小数 不包括1[0,1)
+            // 0-450 用的50倍速 产生一个0-9的随机数
+            div.style.left=parseInt(Math.random()*10)*50+"px";
+            div.style.top=parseInt(Math.random()*10)*50+"px";
+            div.style.backgroundColor=color;
+            map.appendChild(div);
+            // return 就是函数执行后的返回结果 等于函数所创建出来的div
+            return div
+        }
+        // 如何操作蛇头 js找到蛇头对应的div
+        // 如何让蛇头移动起来 四个方向移动前需要判断一下当前蛇头是要向哪个方向进行移动
+        var headNode=createDiv("red"); //创建蛇头
+        console.log(headNode);
+        var foodNode=createDiv('blue');//创建食物
+        console.log(foodNode);
+    </script>
+</body>
+</html>
